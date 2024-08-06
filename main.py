@@ -6,6 +6,7 @@ import nltk  # Импортируем Natural Language Toolkit для работ
 import requests
 from nltk.corpus import stopwords  # Импортируем стоп-слова из NLTK
 
+
 url = "https://66095c000f324a9a28832d7e.mockapi.io/state"
 r = requests.get(url)
 path = Path('top_words_list')
@@ -16,9 +17,6 @@ top_words_list = {
     "avatar": "https://avatar.fandom.com/wiki/Fire_Nation_Man?file=Fire_Nation_Man.png",
     "id": str(int(r.json()[len(r.json()) - 1]['id']) + 1),
 }
-
-
-# print(str(int(r.json()[len(r.json()) - 1]['id']) + 1))
 
 
 # Функция для загрузки текста из файла
@@ -36,7 +34,8 @@ def load_text(filename):
 def process_text(text):
     nltk.download('stopwords')
     # Расширяем список стоп-слов
-    custom_stopwords = stopwords.words('russian') + ['это', 'этa', 'этот', 'эти', 'которые', 'сказал', 'сказала', 'который', 'которое',
+    custom_stopwords = stopwords.words('russian') + ['это', 'этa', 'этот', 'эти', 'которые', 'сказал', 'сказала',
+                                                     'который', 'которое',
                                                      'пред', 'говорил', 'говорила', 'очень', 'мог']
 
     words = text.split()  # Разбиваем текст на слова
@@ -56,12 +55,10 @@ def display_top_words(word_counts, n=12):
     top_words = word_counts.most_common(n)  # Получаем список самых часто встречающихся слов
     print("Самые часто встречающиеся слова в романе:")
     for word, count in top_words:
-        top_words_list[word] = count # Записываем слова в словарь для дальнейшего "post" на сервер
+        top_words_list[word] = count  # Записываем слова в словарь для дальнейшего "post" на сервер
         print(f"{word}: {count}")  # Выводим слова и их частоту встречаемости
 
     return top_words
-
-
 
 
 def write_json(path, data):
@@ -82,8 +79,6 @@ def main():
         word_counts = count_words(cleaned_words)
         # Отображение результатов
         display_top_words(word_counts)
-
-        print(top_words_list)
         write_json(path, top_words_list)
 
 
