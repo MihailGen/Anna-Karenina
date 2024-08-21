@@ -44,7 +44,7 @@ def process_text(text):
     # Удаляем пунктуацию в концe слов
     words_without_punct = []
     for word in words:
-        if word[-1] in [",", ".", "!", ";", "?", ";", ":", "/", "|"]:
+        if word[-1] in [",", ".", "!", ";", "?", ";", ":", "/", "\\", "|", ")", "(", "*", "#"]:
             words_without_punct.append(word[0:-1])
         else:
             words_without_punct.append(word)
