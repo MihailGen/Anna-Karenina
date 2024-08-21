@@ -5,6 +5,7 @@ from pathlib import Path
 import nltk  # Импортируем Natural Language Toolkit для работы с естественным языком
 import requests
 from nltk.corpus import stopwords  # Импортируем стоп-слова из NLTK
+import threading
 
 
 url = "https://66095c000f324a9a28832d7e.mockapi.io/state"
@@ -39,10 +40,19 @@ def process_text(text):
                                                      'пред', 'говорил', 'говорила', 'очень', 'мог']
 
     words = text.split()  # Разбиваем текст на слова
-    cleaned_words = [word.lower() for word in words if
-                     word.isalpha() and word.lower() not in custom_stopwords]  # Оставляем только слова, убираем пунктуацию и цифры, и переводим все слова в нижний регистр. Исключаем стоп-слова
-    return cleaned_words  # Возвращаем список очищенных слов
 
+    # Удаляем пунктуацию в концe слов
+    words_without_punct = []
+    for word in words:
+        if word[-1] in [",", ".", "!", ";", "?", ";", ":", "/", "|"]:
+            words_without_punct.append(word[0:-1])
+        else:
+            words_without_punct.append(word)
+
+    cleaned_words = [word.lower() for word in words_without_punct if
+                     word.isalpha() and word.lower() not in custom_stopwords]  # Оставляем только слова, убираем пунктуацию и цифры, и переводим все слова в нижний регистр. Исключаем стоп-слова
+
+    return cleaned_words  # Возвращаем список очищенных слов
 
 # Подсчет частоты встречаемости слов
 def count_words(cleaned_words):
@@ -66,6 +76,9 @@ def write_json(path, data):
         return path.write_text(json.dumps(data), encoding='utf-8')
     except json.decoder.JSONDecodeError:
         print("Invalid JSON")
+
+
+
 
 
 def main():

@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53b03029-435a-4e96-8e98-de67e99909cb" name="Changes" comment="V1">
+    <list default="true" id="53b03029-435a-4e96-8e98-de67e99909cb" name="Changes" comment="V2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/top_words_list" beforeDir="false" afterPath="$PROJECT_DIR$/top_words_list" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,11 +70,36 @@
       <option name="project" value="LOCAL" />
       <updated>1722869731655</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="V1">
+      <option name="closed" value="true" />
+      <created>1722934583705</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1722934583705</updated>
+    </task>
+    <task id="LOCAL-00003" summary="V2">
+      <option name="closed" value="true" />
+      <created>1722934729177</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1722934729177</updated>
+    </task>
+    <task id="LOCAL-00004" summary="V2">
+      <option name="closed" value="true" />
+      <created>1722934856971</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1722934856971</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="V1" />
-    <option name="LAST_COMMIT_MESSAGE" value="V1" />
+    <MESSAGE value="V2" />
+    <option name="LAST_COMMIT_MESSAGE" value="V2" />
   </component>
 </project>
